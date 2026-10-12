@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [20, 22]
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run typecheck
+
+      - run: npm test
+
+      - run: npm run build
+
+      # Fails when the package would be published without the server or its guides, or above 1 MB
+      - name: Check package contents
+        shell: bash
+        run: |
+          npm pack --dry-run --json > pack.json
+          node -e "
+            const [pack] = require('./pack.json');
+            const files = pack.files.map(f => f.path);
+            const required = ['dist/bin.js', 'content/aliases.json', 'content/guides/install-angular.md', 'content/guides/install-angularjs.md', 'content/guides/setup-angular.md', 'content/guides/setup-angularjs.md'];
+            for (const file of required) {
+              if (!files.includes(file)) throw new Error('Missing from package: ' + file);
+            }
+            if (pack.size > 1024 * 1024) throw new Error('Package is larger than 1 MB: ' + pack.size + ' bytes');
+            console.log(files.length + ' files, ' + pack.size + ' bytes');
+          "

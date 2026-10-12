@@ -1,0 +1,951 @@
+{
+  "timestamp": "2026-10-12T20:00:34",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "4.45.2",
+    "typescriptVersion": "5.8.3"
+  },
+  "components": [
+    {
+      "filePath": "src/components/bth-alert/bth-alert.tsx",
+      "encapsulation": "shadow",
+      "tag": "bth-alert",
+      "readme": "# bth-alert-title\n\n\n",
+      "docs": "Alerta para destacar uma mensagem importante dentro do conteúdo da página.",
+      "docsTags": [
+        {
+          "name": "usage-when",
+          "text": "Para comunicar o resultado de uma ação, como sucesso ou erro ao salvar."
+        },
+        {
+          "name": "usage-when",
+          "text": "Para avisar sobre um estado ou uma condição que afeta o que a pessoa está fazendo."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Para mensagens temporárias que somem sozinhas; use uma notificação do tipo toast."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Para validação de um campo específico; mostre a mensagem junto ao campo."
+        },
+        {
+          "name": "category",
+          "text": "feedback"
+        },
+        {
+          "name": "related",
+          "text": "bth-alert-title, bth-alert-description, bth-icon"
+        },
+        {
+          "name": "example",
+          "text": "```html\n<bth-alert variant=\"info\" dismissible>\n  <bth-icon slot=\"icon\" name=\"info\"></bth-icon>\n  <bth-alert-title>Informação</bth-alert-title>\n  <bth-alert-description>Uma nova versão está disponível.</bth-alert-description>\n</bth-alert>\n```"
+        },
+        {
+          "name": "status",
+          "text": "beta"
+        },
+        {
+          "name": "slot",
+          "text": "- Conteúdo do alerta, normalmente `bth-alert-title` e `bth-alert-description`."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Ícone exibido à esquerda do conteúdo."
+        },
+        {
+          "name": "part",
+          "text": "alert - Contêiner do alerta."
+        },
+        {
+          "name": "part",
+          "text": "dismiss - Botão de fechar, presente quando `dismissible` está ativo."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "dismissible",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dismissible",
+          "reflectToAttr": false,
+          "docs": "Exibe um botão que permite fechar o alerta.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "variant",
+          "type": "\"danger\" | \"default\" | \"info\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "AlertVariant",
+            "resolved": "\"danger\" | \"default\" | \"info\" | \"success\" | \"warning\"",
+            "references": {
+              "AlertVariant": {
+                "location": "import",
+                "path": "./bth-alert.types",
+                "id": "src/components/bth-alert/bth-alert.types.ts::AlertVariant",
+                "referenceLocation": "AlertVariant"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "Variante de cor, de acordo com o tipo da mensagem.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'default'"
+            }
+          ],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "bthDismiss",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitido quando o alerta é fechado pelo botão de fechar.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Conteúdo do alerta, normalmente `bth-alert-title` e `bth-alert-description`."
+        },
+        {
+          "name": "icon",
+          "docs": "Ícone exibido à esquerda do conteúdo."
+        }
+      ],
+      "parts": [
+        {
+          "name": "alert",
+          "docs": "Contêiner do alerta."
+        },
+        {
+          "name": "dismiss",
+          "docs": "Botão de fechar, presente quando `dismissible` está ativo."
+        }
+      ],
+      "states": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/bth-alert/bth-alert-description.tsx",
+      "encapsulation": "shadow",
+      "tag": "bth-alert-description",
+      "readme": "# bth-alert-title\n\n\n",
+      "docs": "Descrição de um `bth-alert`.",
+      "docsTags": [
+        {
+          "name": "usage-when",
+          "text": "Dentro de um `bth-alert`, para detalhar a mensagem ou orientar o próximo passo."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Fora de um `bth-alert`; para outros textos, use um parágrafo comum."
+        },
+        {
+          "name": "category",
+          "text": "feedback"
+        },
+        {
+          "name": "related",
+          "text": "bth-alert, bth-alert-title"
+        },
+        {
+          "name": "example",
+          "text": "```html\n<bth-alert-description>Uma nova versão está disponível.</bth-alert-description>\n```"
+        },
+        {
+          "name": "status",
+          "text": "beta"
+        },
+        {
+          "name": "slot",
+          "text": "- Texto da descrição."
+        },
+        {
+          "name": "part",
+          "text": "description - Elemento da descrição."
+        }
+      ],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Texto da descrição."
+        }
+      ],
+      "parts": [
+        {
+          "name": "description",
+          "docs": "Elemento da descrição."
+        }
+      ],
+      "states": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/bth-alert/bth-alert-title.tsx",
+      "encapsulation": "shadow",
+      "tag": "bth-alert-title",
+      "readme": "# bth-alert-title\n\n\n",
+      "docs": "Título de um `bth-alert`.",
+      "docsTags": [
+        {
+          "name": "usage-when",
+          "text": "Dentro de um `bth-alert`, para resumir a mensagem em poucas palavras."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Fora de um `bth-alert`; para outros títulos, use um elemento de título comum."
+        },
+        {
+          "name": "category",
+          "text": "feedback"
+        },
+        {
+          "name": "related",
+          "text": "bth-alert, bth-alert-description"
+        },
+        {
+          "name": "example",
+          "text": "```html\n<bth-alert-title>Informação</bth-alert-title>\n```"
+        },
+        {
+          "name": "status",
+          "text": "beta"
+        },
+        {
+          "name": "slot",
+          "text": "- Texto do título."
+        },
+        {
+          "name": "part",
+          "text": "title - Elemento do título."
+        }
+      ],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Texto do título."
+        }
+      ],
+      "parts": [
+        {
+          "name": "title",
+          "docs": "Elemento do título."
+        }
+      ],
+      "states": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/bth-badge/bth-badge.tsx",
+      "encapsulation": "shadow",
+      "tag": "bth-badge",
+      "readme": "# bth-badge\n\n\n",
+      "docs": "Etiqueta curta para destacar um status, uma categoria ou uma contagem.",
+      "docsTags": [
+        {
+          "name": "usage-when",
+          "text": "Para indicar o status de um item, como \"Ativo\", \"Pendente\" ou \"Novo\"."
+        },
+        {
+          "name": "usage-when",
+          "text": "Para rotular ou categorizar um conteúdo, inclusive ao lado de um título."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Para ações clicáveis; use um `bth-button`."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Para mensagens longas ou que exigem atenção imediata; use um `bth-alert`."
+        },
+        {
+          "name": "category",
+          "text": "dados"
+        },
+        {
+          "name": "related",
+          "text": "bth-button, bth-alert, bth-icon"
+        },
+        {
+          "name": "example",
+          "text": "```html\n<bth-badge variant=\"solid\" color=\"primary\">solid</bth-badge>\n<bth-badge variant=\"subtle\" color=\"primary\">subtle</bth-badge>\n<bth-badge variant=\"outline\" color=\"primary\">outline</bth-badge>\n```"
+        },
+        {
+          "name": "status",
+          "text": "beta"
+        },
+        {
+          "name": "slot",
+          "text": "- Conteúdo do badge."
+        },
+        {
+          "name": "part",
+          "text": "badge - Elemento do badge."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "\"accent\" | \"danger\" | \"default\" | \"info\" | \"primary\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "BadgeColor",
+            "resolved": "\"accent\" | \"danger\" | \"default\" | \"info\" | \"primary\" | \"success\" | \"warning\"",
+            "references": {
+              "BadgeColor": {
+                "location": "import",
+                "path": "./bth-badge.types",
+                "id": "src/components/bth-badge/bth-badge.types.ts::BadgeColor",
+                "referenceLocation": "BadgeColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": true,
+          "docs": "Cor do badge.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'default'"
+            }
+          ],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "accent",
+              "type": "string"
+            },
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BadgeSize",
+            "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BadgeSize": {
+                "location": "import",
+                "path": "./bth-badge.types",
+                "id": "src/components/bth-badge/bth-badge.types.ts::BadgeSize",
+                "referenceLocation": "BadgeSize"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "Tamanho do badge, proporcional ao tamanho da fonte do contexto onde ele está.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'md'"
+            }
+          ],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "variant",
+          "type": "\"outline\" | \"solid\" | \"subtle\"",
+          "complexType": {
+            "original": "BadgeVariant",
+            "resolved": "\"outline\" | \"solid\" | \"subtle\"",
+            "references": {
+              "BadgeVariant": {
+                "location": "import",
+                "path": "./bth-badge.types",
+                "id": "src/components/bth-badge/bth-badge.types.ts::BadgeVariant",
+                "referenceLocation": "BadgeVariant"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "Estilo visual: `solid` é preenchido, `subtle` tem um fundo suave e `outline` tem só a borda.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'solid'"
+            }
+          ],
+          "default": "'solid'",
+          "values": [
+            {
+              "value": "outline",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            },
+            {
+              "value": "subtle",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Conteúdo do badge."
+        }
+      ],
+      "parts": [
+        {
+          "name": "badge",
+          "docs": "Elemento do badge."
+        }
+      ],
+      "states": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/bth-button/bth-button.tsx",
+      "encapsulation": "shadow",
+      "tag": "bth-button",
+      "readme": "# bth-button\n\n\n",
+      "docs": "Botão para disparar ações e enviar formulários.",
+      "docsTags": [
+        {
+          "name": "usage-when",
+          "text": "Para disparar uma ação na página atual, como salvar, confirmar ou abrir um diálogo."
+        },
+        {
+          "name": "usage-when",
+          "text": "Para enviar ou limpar um formulário, com `type=\"submit\"` ou `type=\"reset\"`."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Para navegar entre páginas; use um link."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Com mais de um botão de destaque na mesma área; reserve a cor `primary` para a ação principal."
+        },
+        {
+          "name": "category",
+          "text": "formulário"
+        },
+        {
+          "name": "related",
+          "text": "bth-icon, bth-alert"
+        },
+        {
+          "name": "example",
+          "text": "```html\n<bth-button color=\"primary\">Salvar</bth-button>\n<bth-button variant=\"outline\" color=\"danger\" size=\"sm\">Excluir</bth-button>\n```"
+        },
+        {
+          "name": "status",
+          "text": "beta"
+        },
+        {
+          "name": "slot",
+          "text": "- Conteúdo do botão."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "\"danger\" | \"default\" | \"info\" | \"primary\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "ButtonColor",
+            "resolved": "\"danger\" | \"default\" | \"info\" | \"primary\" | \"success\" | \"warning\"",
+            "references": {
+              "ButtonColor": {
+                "location": "import",
+                "path": "./bth-button.types",
+                "id": "src/components/bth-button/bth-button.types.ts::ButtonColor",
+                "referenceLocation": "ButtonColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": true,
+          "docs": "Cor do botão.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'default'"
+            }
+          ],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "Desabilita o botão e impede a interação.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "ButtonSize",
+            "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "ButtonSize": {
+                "location": "import",
+                "path": "./bth-button.types",
+                "id": "src/components/bth-button/bth-button.types.ts::ButtonSize",
+                "referenceLocation": "ButtonSize"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "Tamanho do botão.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'md'"
+            }
+          ],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "type",
+          "type": "\"button\" | \"reset\" | \"submit\"",
+          "complexType": {
+            "original": "'submit' | 'reset' | 'button'",
+            "resolved": "\"button\" | \"reset\" | \"submit\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "Tipo do botão nativo. `submit` e `reset` atuam sobre o formulário pai.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'button'"
+            }
+          ],
+          "default": "'button'",
+          "values": [
+            {
+              "value": "button",
+              "type": "string"
+            },
+            {
+              "value": "reset",
+              "type": "string"
+            },
+            {
+              "value": "submit",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"ghost\" | \"outline\"",
+          "complexType": {
+            "original": "ButtonVariant",
+            "resolved": "\"default\" | \"ghost\" | \"outline\"",
+            "references": {
+              "ButtonVariant": {
+                "location": "import",
+                "path": "./bth-button.types",
+                "id": "src/components/bth-button/bth-button.types.ts::ButtonVariant",
+                "referenceLocation": "ButtonVariant"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "Estilo visual: `default` é preenchido, `outline` tem só a borda e `ghost` tem só o texto.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'default'"
+            }
+          ],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "ghost",
+              "type": "string"
+            },
+            {
+              "value": "outline",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Conteúdo do botão."
+        }
+      ],
+      "parts": [],
+      "states": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/bth-icon/bth-icon.tsx",
+      "encapsulation": "none",
+      "tag": "bth-icon",
+      "readme": "# bth-icon\n\n\n",
+      "docs": "Ícone da fonte Material Symbols Outlined.",
+      "docsTags": [
+        {
+          "name": "usage-when",
+          "text": "Para reforçar visualmente o significado de um texto, como o título de um alerta ou o rótulo de um botão."
+        },
+        {
+          "name": "usage-when",
+          "text": "Para preencher o slot `icon` de outros componentes."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Como único conteúdo de um controle interativo sem um rótulo acessível."
+        },
+        {
+          "name": "usage-avoid",
+          "text": "Para ilustrações ou imagens decorativas grandes; use uma imagem."
+        },
+        {
+          "name": "category",
+          "text": "mídia"
+        },
+        {
+          "name": "related",
+          "text": "bth-alert, bth-button"
+        },
+        {
+          "name": "example",
+          "text": "```html\n<bth-icon name=\"info\"></bth-icon>\n```"
+        },
+        {
+          "name": "status",
+          "text": "beta"
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "Nome do ícone na fonte Material Symbols Outlined, como `info` ou `check_circle`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "states": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    }
+  ],
+  "typeLibrary": {
+    "src/components/bth-alert/bth-alert.types.ts::AlertVariant": {
+      "declaration": "export type AlertVariant = 'default' | 'danger' | 'success' | 'warning' | 'info';",
+      "docstring": "",
+      "path": "src/components/bth-alert/bth-alert.types.ts"
+    },
+    "src/components/bth-badge/bth-badge.types.ts::BadgeVariant": {
+      "declaration": "export type BadgeVariant = 'solid' | 'subtle' | 'outline';",
+      "docstring": "",
+      "path": "src/components/bth-badge/bth-badge.types.ts"
+    },
+    "src/components/bth-badge/bth-badge.types.ts::BadgeColor": {
+      "declaration": "export type BadgeColor = 'primary' | 'success' | 'danger' | 'warning' | 'info' | 'accent' | 'default';",
+      "docstring": "",
+      "path": "src/components/bth-badge/bth-badge.types.ts"
+    },
+    "src/components/bth-badge/bth-badge.types.ts::BadgeSize": {
+      "declaration": "export type BadgeSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';",
+      "docstring": "",
+      "path": "src/components/bth-badge/bth-badge.types.ts"
+    },
+    "src/components/bth-button/bth-button.types.ts::ButtonVariant": {
+      "declaration": "export type ButtonVariant = 'outline' | 'ghost' | 'default';",
+      "docstring": "",
+      "path": "src/components/bth-button/bth-button.types.ts"
+    },
+    "src/components/bth-button/bth-button.types.ts::ButtonSize": {
+      "declaration": "export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';",
+      "docstring": "",
+      "path": "src/components/bth-button/bth-button.types.ts"
+    },
+    "src/components/bth-button/bth-button.types.ts::ButtonColor": {
+      "declaration": "export type ButtonColor = 'primary' | 'success' | 'danger' | 'warning' | 'info' | 'default';",
+      "docstring": "",
+      "path": "src/components/bth-button/bth-button.types.ts"
+    }
+  }
+}

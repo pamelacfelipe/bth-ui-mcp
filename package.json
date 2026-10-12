@@ -1,0 +1,53 @@
+{
+  "name": "bth-ui-mcp",
+  "version": "0.0.1",
+  "description": "Servidor MCP do bth-ui: documenta os web components da lib para assistentes de IA",
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test:watch": "vitest",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/bin.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "bth-ui",
+    "web-components",
+    "stencil",
+    "claude-code",
+    "codex"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsup": "^8.5.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "minisearch": "^7.2.0",
+    "zod": "^4.6.7"
+  },
+  "type": "module",
+  "bin": {
+    "bth-ui-mcp": "dist/bin.js"
+  },
+  "files": [
+    "dist/",
+    "content/"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pamelacfelipe/bth-ui-mcp.git"
+  },
+  "homepage": "https://github.com/pamelacfelipe/bth-ui-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/pamelacfelipe/bth-ui-mcp/issues"
+  }
+}

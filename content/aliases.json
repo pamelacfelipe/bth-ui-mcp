@@ -1,0 +1,8 @@
+{
+  "bth-alert": ["alerta", "aviso", "avisar", "informar", "mensagem", "notificação", "feedback", "banner", "callout", "erro", "sucesso", "atenção", "alert", "warning"],
+  "bth-alert-title": ["título do alerta", "cabeçalho do alerta"],
+  "bth-alert-description": ["descrição do alerta", "texto do alerta", "detalhe do alerta"],
+  "bth-badge": ["etiqueta", "tag", "selo", "rótulo", "status", "situação", "chip", "pill", "label", "contador", "contagem", "badge"],
+  "bth-button": ["botão", "ação", "clicar", "confirmar", "cancelar", "excluir", "destrutivo", "submit", "enviar", "btn", "button"],
+  "bth-icon": ["ícone", "símbolo", "pictograma", "glifo", "material symbols", "icon"]
+}

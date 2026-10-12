@@ -1,0 +1,53 @@
+name: Publish
+
+# Publishes to npm when a GitHub Release is published.
+# Authentication uses npm trusted publishing (OIDC), so no token is stored in the repository.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing requires npm 11.5.1 or newer
+      - run: npm install -g npm@11
+
+      - run: npm ci
+
+      - name: Check that the tag matches the package version
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          VERSION="v$(node -p "require('./package.json').version")"
+          if [ "$TAG" != "$VERSION" ]; then
+            echo "::error::Release tag $TAG does not match package.json version $VERSION"
+            exit 1
+          fi
+
+      - run: npm run typecheck
+
+      - run: npm test
+
+      - run: npm run build
+
+      # Pre-releases go to the "next" dist-tag, so they don't become the default install
+      - run: npm publish --access public --tag "$DIST_TAG"
+        env:
+          DIST_TAG: ${{ github.event.release.prerelease && 'next' || 'latest' }}
